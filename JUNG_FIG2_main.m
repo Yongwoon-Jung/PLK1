@@ -15,7 +15,7 @@ close all
 disp('processing...');
 
 % FIG 2A
-filename='Fig2A_2019Paper.fig';
+filename='Fig2A.fig';
 openfig(filename);
 
 global P0
