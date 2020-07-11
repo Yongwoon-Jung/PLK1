@@ -132,8 +132,8 @@ P0(91)=0.1;       %p53 degradation rate constant
 P0(92)=0.2;       %Mad2 degradation rate constant
 
 P0(93)=1;         %Intensifying rate in kf6p by ATM_ATR  1
-P0(94)=1;         %Intensifying  rate in of kf11p by pttg1  1
-P0(95)=1;         %Intensifying  rate in ks8 by ATM_ATR  1
+P0(94)=1;         %Intensifying rate in kf11p by pttg1  1
+P0(95)=1;         %Intensifying rate in ks8 by ATM_ATR  1
 P0(96)=0.001;     %Reduction rate of ks5 for returning to normal
 P0(97)=0.001;     %Reduction rate of ks27 for returning to normal  
 P0(98)=0.001;     %Reduction rate of ks28 for returning to normal
