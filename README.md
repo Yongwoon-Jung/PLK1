@@ -1,5 +1,5 @@
 # PLK1
-This contains code for PLK1 cell cycle simulations.
+This contains codes for PLK1 cell cycle simulations.
 The Execusion files such as main (present the beahviors of 50 protein and protein complexes), FIG2, FIG3, FIG7, and Fig8 are ready for readers to demonstrate. 
 Eqn, constant valriables, initial parameters are key files needed to conduct those execusion files.
 We have 34 ODEs(Odinary Differential Equations) and 137 parameters and 50 protein and protein complexes.
