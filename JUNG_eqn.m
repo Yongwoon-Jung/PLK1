@@ -85,7 +85,7 @@ kr16p=P0(39);       %Dephosphorylation rate constant of p53P by WIP1
 kf17=P0(40);        %Forward rate constant for association of Plk1P and p53P 
 kr17=P0(41);        %Backward rate constant for dissociation of p53P:Plk1P        
 kf18=P0(42);        %Forward rate constant for association of Mad2 and cdc25CP 
-kr18=P0(43);        %Backward rate constant for dissociation of MAD2_cdc25CP 
+kr18p=P0(43);       %Backward rate constant for dissociation of MAD2_cdc25CP 
 
 ks1=P0(44);         %Cyclin synthesis rate constant
 ks5=P0(45);         %p21 synthesis rate constant
@@ -226,6 +226,7 @@ kr14=kr14p*MPF;
 kf15=kf15p*MPF;
 kf16=kf16p*ATM_ATR^N3/(KATMATR^N3+ATM_ATR^N3);
 kr16=kr16p*Wip1;
+kr18=kr18p*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)
 LMNA=LMNAT-LMNAP;
 
 
@@ -255,7 +256,7 @@ dAPCP=kf8*APC-kr8*APCP/(KAPCP+APCP)-kf10*APCP*Cdc20-kf13*APCP*Cdh1 +...
      (kr9+kr10)*APCP_Cdc20+(kr11+kr13)*APCP_Cdh1-kd16*APCP;
 dCdc20=ks17+kf9*Cdc20P/(KCdc20P1+Cdc20P)-kr9*Cdc20+...
     (kr10+kr8)*APCP_Cdc20-kf10*Cdc20*APCP-kd17p1*Cdc20-kd17p3*(APC_Cdh1+APCP_Cdh1)/(KCdc20+Cdc20)*Cdc20;
-dCdc20P=kr9*Cdc20-kf18*Mad2*Cdc20P+kr18*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)-kf9*Cdc20P/(KCdc20P1+Cdc20P)+kr9*APCP_Cdc20-kd18p1*Cdc20P-kd18p3*(APC_Cdh1+APCP_Cdh1)/(KCdc20P2+Cdc20P)*Cdc20P;
+dCdc20P=kr9*Cdc20-kf18*Mad2*Cdc20P+kr18p*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)-kf9*Cdc20P/(KCdc20P1+Cdc20P)+kr9*APCP_Cdc20-kd18p1*Cdc20P-kd18p3*(APC_Cdh1+APCP_Cdh1)/(KCdc20P2+Cdc20P)*Cdc20P;
 if Mad2_Cdc20P > ASP   
     dCdc20=0;
     dCdc20P=0;
@@ -276,8 +277,8 @@ dp53P_Plk1P=kf17*p53P*Plk1P-kr17*p53P_Plk1P;
 dMdm2= ks31+ ks31p*p53P -ki31*ATM_ATR*Mdm2-kd31*Mdm2;
 %----------------------------
 dWip1= ks32+ks32p*p53P-kd32*Wip1;
-dMad2=ks33-kf18*Mad2*Cdc20P+kr18*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)-kd33*Mad2;
-dMad2_Cdc20P= kf18*Mad2*Cdc20P-kr18*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD);
+dMad2=ks33-kf18*Mad2*Cdc20P+kr18p*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)-kd33*Mad2;
+dMad2_Cdc20P= kf18*Mad2*Cdc20P-kr18p*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD);
 
 dY(1)=dCyclinB1;
 dY(2)=dCDK1;
