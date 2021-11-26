@@ -147,7 +147,7 @@ kd28p=P0(99);       %Mdm2-dependent p53 degradation rate
 kd29=P0(100);        %p53P degradation rate constant
 kd29p=P0(101);       %Mdm2-dependent p53P degradation rate
 
-ki31=P0(102);        %ATM-ATR dependent Mdm2 inactivaton rate
+kd31p1=P0(102);        %ATM-ATR dependent Mdm2 inactivaton rate
 kd31=P0(103);        %Mdm2 degradation rate constant
 kd32=P0(104);        %Wip1 degradation rate constant
 kd33=P0(105);        %Mad2 degradation rate constant  0.2
@@ -274,7 +274,7 @@ dp53= ks28*(1 + ATM_ATR/KA3)-kf16*p53+ kr16*p53P-kd28p*p53*Mdm2-kd28*p53;
 dp53P= kf16*p53+kr17*p53P_Plk1P-kf17*p53P*Plk1P-kd29p*p53P*Mdm2 - kr16*p53P -kd29*p53P;
 dp53P_Plk1P=kf17*p53P*Plk1P-kr17*p53P_Plk1P;
 %----------------------------
-dMdm2= ks31+ ks31p*p53P -ki31*ATM_ATR*Mdm2-kd31*Mdm2;
+dMdm2= ks31+ ks31p*p53P -kd31p1*ATM_ATR*Mdm2-kd31*Mdm2;
 %----------------------------
 dWip1= ks32+ks32p*p53P-kd32*Wip1;
 dMad2=ks33-kf18*Mad2*Cdc20P+kr18p*Mad2_Cdc20P*(1+p21/KMCD+ Epsilon*Plk1P/KMCD)-kd33*Mad2;
