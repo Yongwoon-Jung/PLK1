@@ -1,5 +1,12 @@
+
 %---------------------------------------------------------------------------------------
-% 
+% Code Builder: Yongwoon Jung
+% Fully hybrid model for mitotic cell cycle regulation.
+% Last modified: 4/5/2021
+% function : Jung_eqn.m, JUNG_init_parameters, JUNG_constant_variables
+% main program : JUNG_Fig2_main.m
+% Fig2
+% 34 initial values, 137 parametes
 %---------------------------------------------------------------------------------------
 function dY=JUNG_eqn(t,Y)
 
